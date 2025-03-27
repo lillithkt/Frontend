@@ -22,7 +22,7 @@
 
   function handleControlMessages(controls: Control[]) {
     shockerV2Api.shockerSendControl({
-      shocks: controls,
+      shocks: controls.map(i=>({...i, duration: i.duration * 1000})),
       customName: 'Custom name',
     });
   }
